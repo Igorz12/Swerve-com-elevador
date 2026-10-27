@@ -35,15 +35,10 @@ public class Robot extends LoggedRobot
     instance = this;
 
     Logger.recordMetadata("Mtech", "Mtech9603"); // Set a metadata value
-
-    if (isReal()) {
     Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
     Logger.addDataReceiver(new NT4Publisher()); // Publish data to NetworkTables
-} else {
-    Logger.addDataReceiver(new WPILOGWriter()); // Log to a USB stick ("/U/logs")
-    Logger.addDataReceiver(new NT4Publisher()); // Publish data to NetworkTables
-  }
-Logger.start();
+  
+      Logger.start();
   }
   public static Robot getInstance()
   {
@@ -56,12 +51,10 @@ Logger.start();
   @Override
   public void robotInit()
   {
-    // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
-    // autonomous chooser on the dashboard.
+   
     m_robotContainer = new RobotContainer();
 
-    // Create a timer to disable motor brake a few seconds after disable.  This will let the robot stop
-    // immediately when disabled, but then also let it be pushed more 
+    
     disabledTimer = new Timer();
 
     if (isSimulation())

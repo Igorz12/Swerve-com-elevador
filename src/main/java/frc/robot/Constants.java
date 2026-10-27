@@ -53,8 +53,8 @@ public final class Constants
     public static final int ControllerPort = 0;
 
      
-        public static final int MOTOR_ID = 6; 
-        public static final int MOTOR_ID_2 = 5; 
+        public static final int MOTOR_ID = 10; 
+        public static final int MOTOR_ID_2 = 12; 
 
         public static final double Reducao = 60.0; //calculo loko la
 

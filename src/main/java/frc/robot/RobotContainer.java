@@ -21,8 +21,8 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.ElevatorCMD;
-import frc.robot.subsystems.ElevatorSUB;
+import frc.robot.commands.Elevador.ElevatorCMD;
+import frc.robot.subsystems.elevador.ElevatorSUB;
 import frc.robot.subsystems.swervedrive.SwerveSubsystem;
 import java.io.File;
 import swervelib.SwerveInputStream;
@@ -87,12 +87,16 @@ public class RobotContainer {
     //Command para zerar o giroscópio
     driverXbox.rightBumper().onTrue(Commands.runOnce(drivebase::zeroGyro));
 
-    driverXbox.x().onTrue(new ElevatorCMD(elevado, Constants.ElevatorSUBConstants.point0));
-    driverXbox.a().onTrue(new ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL1));
-    driverXbox.b().onTrue(new ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL2));
-    driverXbox.y().onTrue(new ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL3));
+    driverXbox.x().onTrue(ElevatorCMD(elevado, Constants.ElevatorSUBConstants.point0));
+    driverXbox.a().onTrue(ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL1));
+    driverXbox.b().onTrue(ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL2));
+    driverXbox.y().onTrue(ElevatorCMD(elevado, Constants.ElevatorSUBConstants.pointL3));
+
+  }
 
 
+  public Command ElevatorCMD (ElevatorSUB elevatorSUB, double position) {
+    return new ElevatorCMD(elevatorSUB, position);
   }
 
   public Command getAutonomousCommand() {
