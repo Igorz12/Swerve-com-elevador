@@ -77,7 +77,7 @@ private static final double TOLERANCIA = 1.2;
     return estado;
 }
 
-    public double getAltura() {
+    public double getAltura() {     
         return getPosicao(); //ja convertida em cm
     }
 
